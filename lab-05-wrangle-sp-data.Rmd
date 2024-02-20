@@ -1,12 +1,16 @@
 ---
 title: "Lab 05 - La Quinta is Spanish for next to Denny's, Pt. 2"
 subtitle: "Wrangling spatial data"
+author: "Rachael Smith"
 output: 
   tufte::tufte_html:
     tufte_variant: "envisioned"
     highlight: pygments
     css: ../lab.css
 link-citations: true
+editor_options: 
+  markdown: 
+    wrap: sentence
 ---
 
 ```{r fig.margin = TRUE, echo = FALSE}
@@ -39,10 +43,9 @@ We'll use the **tidyverse** package for much of the data wrangling and visualisa
 These packages are already installed for you.
 You can load them by running the following in your Console:
 
-
 When you do this lab to install `dsbox` you can copy the code below into the console:
 
-```
+```         
 install.packages("devtools")
 devtools::install_github("tidyverse/dsbox")
 ```
@@ -69,6 +72,7 @@ dn_ak <- dennys %>%
 nrow(dn_ak)
 ```
 
+***There are 3 Dennys located in Alaska***
 2.  Filter the La Quinta dataframe for Alaska (AK) and save the result as `lq_ak`. How many La Quinta locations are there in Alaska?
 
 ```{r}
@@ -77,6 +81,7 @@ lq_ak <- laquinta %>%
 nrow(lq_ak)
 ```
 
+***There are 2 La Quinta in Alaska***
 Next we'll calculate the distance between all Denny's and all La Quinta locations in Alaska.
 Let's take this step by step:
 
@@ -143,6 +148,14 @@ dn_lq_ak
 These varibles are renamed to include `.x` and `.y` because the two data frames have the same variables and it's not possible to have two variables in a data frame with the exact same name.
 
 Now that we have the data in the format we wanted, all that is left is to calculate the distances between the pairs.
+
+```{r}
+nrow(dn_lq_ak)
+
+names(dn_lq_ak)
+```
+
+***There are `r nrow(dn_lq_ak) ` observations***
 
 🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
